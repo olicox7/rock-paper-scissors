@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rock, Paper, Scissors</title>
+</head>
+
+<body>
+<script>
+
+function computerPlay(){
+  let randomNum = Math.random() * 3;
+  if (randomNum < 1 ){
+    return "rock";
+  } else {
+    return (randomNum < 2) ? "paper" : "scissors";
+  }
+}
+function playRound(playerSelection,computerSelection){
+    playerSelection = playerSelection.toLowerCase();
+    computerSelection = computerSelection.toLowerCase();
+    if ((playerSelection === "rock" && computerSelection === "paper")
+    || (playerSelection === "paper" && computerSelection === "scissors")
+    || (playerSelection === "scissors" && computerSelection === "rock")){
+      return `You lose, ${computerSelection} beats ${playerSelection}!`;
+    } else if ((playerSelection === "rock" && computerSelection === "scissors")
+    || (playerSelection === "paper" && computerSelection === "rock")
+    || (playerSelection === "scissors" && computerSelection === "paper")){
+      return `You win, ${playerSelection} beats ${computerSelection}!`
+    } return playerSelection === computerSelection ? `It's a draw, you both chose ${playerSelection}.` : "You can't play rock, paper, scissors with those values!"
+  }
+  console.log(playRound("paper",computerPlay()))
+</script>
+</body>
+
+</html>
